@@ -1,0 +1,114 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-family: cursive;
+}
+
+nav {
+    margin: 0;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.buttons a {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    font-size: 1.2em;
+}
+
+.buttons a:hover {
+    background-color: #0056b3;
+}
+
+.hero {
+    background-image: url('фон.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 3em;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.content {
+    padding: 40px;
+    text-align: center;
+}
+
+.content h3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.services .service {
+    background-color: white;
+    padding: 20px;
+    width: 30%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.services .service h4 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.services .service p {
+    font-size: 1em;
+}
+
+footer {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
