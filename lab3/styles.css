@@ -1,4 +1,3 @@
-
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -6,7 +5,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
-
 
 header {
     background-color: #007bff;
@@ -16,8 +14,6 @@ header {
     align-items: center;
     justify-content: space-between;
     position: sticky;
-    top: 0;
-    z-index: 10;
 }
 
 .logo img {
@@ -29,23 +25,18 @@ header {
 header h1 {
     margin: 0;
     font-size: 2em;
-    font-family: cursive;
-    display: inline;
 }
 
 nav {
     display: flex;
     gap: 20px;
-    align-items: center;
 }
 
 nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.1em;
 }
-
 
 .hero {
     background-image: url('фон.jpg');
@@ -57,125 +48,120 @@ nav a {
     align-items: center;
     color: white;
     text-align: center;
-    padding: 0 20px;
 }
-
-.hero h2 {
-    font-size: 3em;
-    font-weight: 700;
-}
-
 
 .content {
     padding: 40px;
     text-align: center;
 }
 
-.content h3 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-
 .services {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin-top: 40px;
-    flex-wrap: wrap;
+    padding: 0 20px;
+    margin-top: 20px;
 }
 
-.services .service {
-    background-color: white;
+.service-card {
+    background-color: #fff;
     padding: 20px;
-    width: 30%;
-    min-width: 250px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 10px 0;
+    border-radius: 8px;
     text-align: left;
 }
 
+.service-card h4 {
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.service-card p {
+    margin: 10px 0 0;
+}
 
 .table-container {
+    max-width: 80%;
     margin: 40px auto;
-    width: 80%;
-    max-width: 1000px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.tariff-table {
+    width: 100%;
+    border-collapse: collapse;
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
-    gap: 1px;
-    background-color: #ddd;
 }
 
-.table-container div {
+.tariff-table thead {
+    display: contents;
+}
+
+.tariff-table th {
     padding: 15px;
-    text-align: center;
-    font-weight: bold;
-    border: 1px solid #ddd;
-}
-
-
-.table-container .header {
     background-color: #007bff;
-    color: white;
-    font-size: 1.1em;
-}
-
-
-.table-container .cell {
-    background-color: white;
-    font-weight: normal;
-    font-size: 1em;
+    color: #fff;
+    border: 1px solid #ddd;
+    font-weight: bold;
     text-align: left;
 }
 
-
-.table-container .cell:nth-child(6n+4),
-.table-container .cell:nth-child(6n+5),
-.table-container .cell:nth-child(6n+6) {
-    background-color: #f9f9f9;
+.tariff-table tbody {
+    display: contents;
 }
 
-.table-container .cell:nth-child(6n+1),
-.table-container .cell:nth-child(6n+2),
-.table-container .cell:nth-child(6n+3) {
-    background-color: #e6f7ff;
+.tariff-table tr {
+    display: contents;
 }
 
+.tariff-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.tariff-table tr:nth-child(even) td {
+    background-color: #eef;
+}
+
+.tariff-table tr:nth-child(odd) td {
+    background-color: #fff;
+}
 
 footer {
     background-color: #007bff;
     color: #fff;
-    padding: 20px 0;
+    padding: 20px;
     text-align: center;
 }
 
 footer p {
     margin: 0;
     font-size: 1em;
-    font-weight: bold;
 }
 
 footer address {
-    margin: 5px 0 0;
+    margin-top: 5px;
     font-style: normal;
     color: #dcdcdc;
     font-size: 0.9em;
-    font-weight: normal;
 }
-
 
 @media screen and (max-width: 768px) {
     nav {
         display: none;
     }
 
-    .table-container {
-        width: 100%;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    .table-container div {
+    th, td {
         padding: 10px;
         font-size: 0.9em;
+    }
+
+    .table-container {
+        width: 100%;
+    }
+
+    .service-card {
+        width: 80%;
     }
 }
