@@ -1,59 +1,79 @@
-document.getElementById('service-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Перехватываем отправку формы
+document.getElementById('service-form').addEventListener('submit', function (event) {
+    event.preventDefault();
 
-    const serviceName = document.getElementById('service-name').value;
-    const rentalPeriod = document.getElementById('rental-period').value;
-    const phoneNumber = document.getElementById('phone-number').value;
-    const description = document.getElementById('description').value;
+    const serviceName = document.getElementById('service-name').value.trim();
+    const rentalPeriod = document.getElementById('rental-period').value.trim();
+    const phoneNumber = document.getElementById('phone-number').value.trim();
+    const description = document.getElementById('description').value.trim();
 
-    const container = document.getElementById('table-container');
 
-    container.innerHTML = '';
+    if (!serviceName || !rentalPeriod || !description) {
+        alert('Пожалуйста, заполните все поля. Поля не могут быть пустыми или содержать только пробелы.');
+        return;
+    }
 
-    const table = document.createElement('table');
-    table.classList.add('generated-table');
+    if (!/^\d{11}$/.test(phoneNumber)) {
+        alert('Номер телефона должен содержать ровно 11 цифр.');
+        return;
+    }
 
-    const headerRow = document.createElement('tr');
-    ['Название услуги', 'Срок аренды', 'Номер телефона', 'Описание'].forEach(text => {
-        const th = document.createElement('th');
-        th.textContent = text;
-        headerRow.appendChild(th);
-    });
-    table.appendChild(headerRow);
 
-    const dataRow = document.createElement('tr');
-    [serviceName, rentalPeriod, phoneNumber, description].forEach(text => {
-        const td = document.createElement('td');
-        td.textContent = text;
-        dataRow.appendChild(td);
-    });
-    table.appendChild(dataRow);
+    const template = document.getElementById('row-template');
+    const clone = template.content.cloneNode(true);
 
-    container.appendChild(table);
+
+    clone.querySelector('.service-name').textContent = serviceName;
+    clone.querySelector('.rental-period').textContent = rentalPeriod;
+    clone.querySelector('.phone-number').textContent = phoneNumber;
+    clone.querySelector('.description').textContent = description;
+
+
+    document.querySelector('.service-form tbody').appendChild(clone);
 });
 
+document.getElementById('save-params').addEventListener('click', function () {
 
-document.getElementById('save-params').addEventListener('click', function() {
-    const serviceName = document.getElementById('service-name').value;
-    const rentalPeriod = document.getElementById('rental-period').value;
-    const phoneNumber = document.getElementById('phone-number').value;
-    const description = document.getElementById('description').value;
+    const rows = document.querySelectorAll('.service-form tbody tr');
+    const data = Array.from(rows).map(row => ({
+        serviceName: row.querySelector('.service-name').textContent,
+        rentalPeriod: row.querySelector('.rental-period').textContent,
+        phoneNumber: row.querySelector('.phone-number').textContent,
+        description: row.querySelector('.description').textContent,
+    }));
 
-    const params = { serviceName, rentalPeriod, phoneNumber, description };
-    localStorage.setItem('serviceParams', JSON.stringify(params));
+
+    localStorage.setItem('serviceParams', JSON.stringify(data));
     alert('Параметры сохранены!');
 });
 
+document.getElementById('load-params').addEventListener('click', function () {
 
-document.getElementById('load-params').addEventListener('click', function() {
     const params = JSON.parse(localStorage.getItem('serviceParams'));
-    if (params) {
-        document.getElementById('service-name').value = params.serviceName;
-        document.getElementById('rental-period').value = params.rentalPeriod;
-        document.getElementById('phone-number').value = params.phoneNumber;
-        document.getElementById('description').value = params.description;
+    if (params && params.length > 0) {
+        const tableBody = document.querySelector('.service-form tbody');
+
+
+        tableBody.innerHTML = '';
+
+        const template = document.getElementById('row-template');
+
+
+        params.forEach(rowData => {
+            const clone = template.content.cloneNode(true);
+
+
+            clone.querySelector('.service-name').textContent = rowData.serviceName;
+            clone.querySelector('.rental-period').textContent = rowData.rentalPeriod;
+            clone.querySelector('.phone-number').textContent = rowData.phoneNumber;
+            clone.querySelector('.description').textContent = rowData.description;
+
+
+            tableBody.appendChild(clone);
+        });
+
         alert('Параметры загружены!');
     } else {
         alert('Нет сохраненных параметров!');
     }
 });
+

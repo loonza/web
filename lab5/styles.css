@@ -129,52 +129,107 @@ form button:hover {
 }
 
 .table-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    margin: 40px auto;
-    padding: 20px;
     max-width: 80%;
-    background-color: #fff;
-    border-radius: 10px;
+    margin: 40px auto;
+    padding: 0 20px;
     width: 100%;
-    overflow-x: auto;
+    text-align: center;
 }
 
-table {
+.table-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
+}
+
+.tariff-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
     width: 100%;
     border-collapse: collapse;
-    background-color: white;
+    overflow: hidden;
     border-radius: 10px;
 }
 
-thead {
-    background-color: #007bff;
-    color: white;
+thead, tbody, tr {
+    display: contents;
 }
 
 th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: left;
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #D6C9B9;
 }
 
 th {
+    background-color: #007bff;
+    color: white;
     font-weight: bold;
+    text-transform: uppercase;
     font-size: 1em;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
-}
-
-tbody tr:nth-child(even) {
-    background-color: #e6f7ff;
 }
 
 td {
-    font-size: 1em;
+    background-color: #f9f9f9;
     color: #333;
+    font-size: 1em;
+}
+
+tr:nth-child(even) td {
+    background-color: #eef5ff;
+}
+
+tr:nth-child(odd) td {
+    background-color: #fff;
+}
+
+td:first-child {
+    font-weight: bold;
+    color: #2C3248;
+}
+
+.service-form {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-form th, .service-form td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #ddd;
+}
+
+.service-form th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.service-form tr {
+    display: table-row; /* Убедитесь, что строки отображаются как таблицы */
+}
+
+.service-form td {
+    display: table-cell; /* Убедитесь, что ячейки отображаются как таблицы */
+    color: #333;
+    font-size: 0.95em;
+}
+
+.service-form tr:nth-child(even) td {
+    background-color: #f4f4f4;
+}
+
+.service-form tr:nth-child(odd) td {
+    background-color: #ffffff;
 }
 
 footer {
@@ -213,4 +268,3 @@ footer p {
         font-size: 0.7em;
     }
 }
-
