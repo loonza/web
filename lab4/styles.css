@@ -94,43 +94,70 @@ nav a.active {
 }
 
 .table-container {
-    margin: 40px auto;
     max-width: 80%;
-    display: grid;
-}
-
-table {
+    margin: 40px auto;
+    padding: 0 20px;
     width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background-color: #007bff;
-    color: white;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
     text-align: center;
 }
 
-th {
+.table-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
     font-weight: bold;
-    font-size: 1.1em;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #ffffff;
+.tariff-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-tbody tr:nth-child(even) {
-    background-color: #e6f7ff;
+thead, tbody, tr {
+    display: contents;
 }
 
-tbody tr:hover {
-    background-color: #d9f3ff;
+th,td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #D6C9B9;
 }
+
+th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+td {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+}
+
+tr:nth-child(even) td {
+    background-color: #eef5ff;
+}
+
+tr:nth-child(odd) td {
+    background-color: #fff;
+}
+
+td:first-child {
+    font-weight: bold;
+    color: #2C3248;
+}
+
+
+
 
 footer {
     background-color: #007bff;
