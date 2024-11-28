@@ -84,49 +84,64 @@ nav a {
     margin: 40px auto;
     padding: 0 20px;
     width: 100%;
+    text-align: center;
+}
+
+.table-container h3 {
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    color: #333;
+    font-weight: bold;
 }
 
 .tariff-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
     width: 100%;
     border-collapse: collapse;
-    display: grid;
-    grid-template-columns: 1fr 1fr 2fr;
+    overflow: hidden;
+    border-radius: 10px;
 }
 
-.tariff-table thead {
+thead, tbody, tr {
     display: contents;
 }
 
-.tariff-table th {
+th, td {
     padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #D6C9B9;
+}
+
+th {
     background-color: #007bff;
-    color: #fff;
-    border: 1px solid #ddd;
+    color: white;
     font-weight: bold;
-    text-align: left;
+    text-transform: uppercase;
+    font-size: 1em;
 }
 
-.tariff-table tbody {
-    display: contents;
+td {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
 }
 
-.tariff-table tr {
-    display: contents;
+tr:nth-child(even) td {
+    background-color: #eef5ff;
 }
 
-.tariff-table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.tariff-table tr:nth-child(even) td {
-    background-color: #eef;
-}
-
-.tariff-table tr:nth-child(odd) td {
+tr:nth-child(odd) td {
     background-color: #fff;
 }
+
+td:first-child {
+    font-weight: bold;
+    color: #2C3248;
+}
+
 
 footer {
     background-color: #007bff;
@@ -144,7 +159,7 @@ footer address {
     margin-top: 5px;
     font-style: normal;
     color: #dcdcdc;
-    font-size: 0.9em;
+    font-size: 1em;
 }
 
 @media screen and (max-width: 768px) {
@@ -153,8 +168,8 @@ footer address {
     }
 
     th, td {
-        padding: 10px;
-        font-size: 0.9em;
+        padding: 8px;
+        font-size: 1em;
     }
 
     .table-container {
